@@ -1,5 +1,6 @@
 import os
 from PIL import Image
+import pandas as pd
 
 from config.menu import IMG_EXTENCION
 
@@ -19,6 +20,8 @@ class RenderImage:
         origin_folder_path = os.path.join(self.c_drive_path, self.origin_folder_name)
         file_list = os.listdir(origin_folder_path)
 
+        elements = list()
+
         for image in file_list:
             file_path = os.path.join(origin_folder_path, image)
             if os.path.isfile(file_path):
@@ -26,10 +29,13 @@ class RenderImage:
                 # ? verificar extencion
                 for ext in self.image_extensions:
                     if ext == extension:
-                        ful_name = name+'-1'+extension
+                        full_name = name+'-1'+extension
+                        elements.append({"name": name, "file_path": file_path})
                         # print(name, extension, file_path),
-                        self.forma_mirrow(file_path,ful_name)
+                        self.forma_mirrow(file_path,full_name)
 
+        # ? exporta a excel
+        self.export_excel(elements)
 
 
     # * trasnforma la imagen tipo espejos
@@ -64,3 +70,12 @@ class RenderImage:
         
         return True
     
+    # * solo uso demo exporta en excel
+    def export_excel(self, array):
+        df = pd.DataFrame(array)
+
+        # Ruta y nombre del archivo Excel
+        excel_file =  finaL_PATH = os.path.join(self.c_drive_path, self.final_folder_name)+"\\datos.xlsx"
+
+        # Exportar el DataFrame a un archivo Excel
+        df.to_excel(excel_file, index=False)
