@@ -7,6 +7,9 @@ MENU_OPTIONS = {
                 4: "Salir"
 }
 
-SUB_MENU_OPTION = {
-    1: {"no se": "algo"}
+SUB_RENDERIZAR = {
+    1: "Cambiar Tamano",
+    2: "Voltear ->",
+    3: "Volater V",
+    4: "Nigun Cambio"
 }

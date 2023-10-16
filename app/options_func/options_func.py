@@ -1,5 +1,7 @@
 import os
 
+from helpers.helper import line
+
 from config.menu import MENU_OPTIONS
 
 
@@ -8,21 +10,35 @@ class OptionFunc:
         self.options = MENU_OPTIONS
         self.select = select
     
+
+
     def eject_function(self):
         # ? renderiza la imagen
-        if self.options[self.select] == 1:
+        line()
+        if self.select == 1:
+            print(f"ejencutando la funcion {self.select}")
             return False
         # ? voleta la imagen hacia la derecha
-        if self.options[self.select] == 2:
+        if self.select == 2:
+            print(f"ejencutando la funcion {self.select}")
             return False
         # ? voleta la imagen hacia abajo
-        if self.options[self.select] == 3:
+        if self.select == 3:
+            print(f"ejencutando la funcion {self.select}")
             return False
         # ? sale del software
-        if self.options[self.select] == 4:
-            return self.close_software()
+        if self.select == 4:
+            print(f"ejencutando la funcion {self.select} .. Saliendo")
+            return True
+        
 
-        self.close_software()
+        print("opcion no existe, intente nuevamente")
+
+        return True
 
     def close_software(self):
         os.system('exit')
+
+
+    def showSubInfo(self):
+        pass

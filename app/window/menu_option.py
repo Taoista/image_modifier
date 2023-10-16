@@ -1,35 +1,43 @@
-import os
 
-from config.menu import MENU_OPTIONS
+from helpers.helper import line
+from options_func.options_func import OptionFunc
+
+from config.menu import MENU_OPTIONS, SUB_RENDERIZAR
 
 class MenuOption:
     def __init__(self):
         self.state = False
         self.options = MENU_OPTIONS
+        self.sub_option = SUB_RENDERIZAR
 
     def startWindow(self):
-        self.clean()
-        self.line()
+        line()
         print("Inicando software de Imagen")
 
         state = False
 
         while state == False:
+
             self.showMenu()
             option = self.getKey()
 
-            if option != False:
-                self.line()
-                self.clean()
-                print(f"opcion seleccionada {option}")         
-                state = True
-            if option == False:
-                self.clean()
-                self.line()
-                print("opcion no existe o mal seleccionada")
-                print("Intente nuevamente")
+            option_func = OptionFunc(option)
+            select = option_func.eject_function()
 
-            self.line()
+            state = select
+
+            # if option != False:
+            #     self.line()
+            #     # self.clean()
+            #     print(f"opcion seleccionada {option}")         
+            #     # state = True
+            # if option == False:
+            #     self.clean()
+            #     self.line()
+            #     print("opcion no existe o mal seleccionada")
+            #     print("Intente nuevamente")
+
+            line()
 
 
     def showMenu(self):
@@ -42,17 +50,12 @@ class MenuOption:
 
     def getKey(self):
         option = str(input("selecciona una opcion \n"))
-
         try:
             select = int(option)
-            return self.options[select]
+            return select
         except:
             return False
 
 
 
-    def line(self):
-        print("--------------------------------------")
 
-    def clean(self):
-        os.system('cls' if os.name == 'nt' else 'clear')
