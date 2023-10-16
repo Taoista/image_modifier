@@ -1,42 +1,54 @@
 import os
 
+from config.menu import MENU_OPTIONS
+
 class MenuOption:
     def __init__(self):
         self.state = False
-        self.options = {
-                1: "Renderizar Imagenes",
-                2: "Voletar ->",
-                3: "Voltear V"
-            }
+        self.options = MENU_OPTIONS
 
     def startWindow(self):
         self.clean()
         self.line()
         print("Inicando software de Imagen")
-        
+
+        state = False
+
+        while state == False:
+            self.showMenu()
+            option = self.getKey()
+
+            if option != False:
+                self.line()
+                self.clean()
+                print(f"opcion seleccionada {option}")         
+                state = True
+            if option == False:
+                self.clean()
+                self.line()
+                print("opcion no existe o mal seleccionada")
+                print("Intente nuevamente")
+
+            self.line()
+
+
+    def showMenu(self):
+        count = 1
         for i in self.options:
-            print(i)
-
-        self.getKey()
-        self.line()
-        pass
-
-
-    def showMenu(self, option):
-        select = int(option)
-        try:
-            return self.options[select]
-        except:
-            return False
-    
+            title = self.options[count]
+            print(f"{count} - {title}")
+            count += 1
 
 
     def getKey(self):
         option = str(input("selecciona una opcion \n"))
 
-        selected = self.showMenu(option)
+        try:
+            select = int(option)
+            return self.options[select]
+        except:
+            return False
 
-        print(selected)
 
 
     def line(self):
