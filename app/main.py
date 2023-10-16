@@ -1,17 +1,11 @@
-from tkinter import *
-
 from window.main_window import *
-
+from window.menu_option import MenuOption
 
 
 def main():
-    widht = 800
-    height = 600
-    title = "Image Modifier"
 
-    main = MainWindow(widht,height, title)
-    main.init_window()
-
+    start = MenuOption()
+    start.startWindow()
 
 
 
