@@ -26,7 +26,7 @@ class RenderImage:
                 # ? verificar extencion
                 for ext in self.image_extensions:
                     if ext == extension:
-                        ful_name = name+'_1'+extension
+                        ful_name = name+'-1'+extension
                         # print(name, extension, file_path),
                         self.forma_mirrow(file_path,ful_name)
 
