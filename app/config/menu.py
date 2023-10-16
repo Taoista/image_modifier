@@ -13,3 +13,5 @@ SUB_RENDERIZAR = {
     3: "Volater V",
     4: "Nigun Cambio"
 }
+
+IMG_EXTENCION =  [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tiff", ".webp"]
