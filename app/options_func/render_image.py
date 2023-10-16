@@ -30,12 +30,12 @@ class RenderImage:
                 for ext in self.image_extensions:
                     if ext == extension:
                         full_name = name+'-1'+extension
-                        elements.append({"name": name, "file_path": file_path})
+                        elements.append({"name": name, "file_path": full_name})
                         # print(name, extension, file_path),
                         self.forma_mirrow(file_path,full_name)
 
         # ? exporta a excel
-        self.export_excel(elements)
+        # self.export_excel(elements)
 
 
     # * trasnforma la imagen tipo espejos
