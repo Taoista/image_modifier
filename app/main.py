@@ -5,11 +5,11 @@ from window.menu_option import MenuOption
 
 def main():
     # ? esta eslel incio del software general
-    # start = MenuOption()
-    # start.startWindow()
+    start = MenuOption()
+    start.startWindow()
 
-    start = RenderImage()
-    start.get_img_folder()
+    # start = RenderImage()
+    # start.get_img_folder()
 
 
 if __name__ == "__main__":

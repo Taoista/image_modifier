@@ -2,14 +2,14 @@ import os
 from PIL import Image
 import pandas as pd
 
-from config.menu import IMG_EXTENCION
+from config.menu import IMG_EXTENCION, FOLDER_ORIGIN, FOLDER_FINISH
 
 
 class RenderImage:
     def __init__(self):
         # ? iniciando el registro de la imagen si no existe
-        self.origin_folder_name = "img_modifier_origen"
-        self.final_folder_name = "img_modifier_final"
+        self.origin_folder_name = FOLDER_ORIGIN
+        self.final_folder_name = FOLDER_FINISH
         self.c_drive_path = "C:\\"
         self.image_extensions = IMG_EXTENCION
 

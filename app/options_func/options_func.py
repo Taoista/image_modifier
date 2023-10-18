@@ -1,4 +1,5 @@
 import os
+from options_func.zoom_image import ZoomImage
 
 from helpers.helper import line
 
@@ -26,8 +27,19 @@ class OptionFunc:
         if self.select == 3:
             print(f"ejencutando la funcion {self.select}")
             return False
-        # ? sale del software
+        # ? modificar zoom
         if self.select == 4:
+            number = input("Cuanto zoom le quieres dar %\n")
+            try:
+                percent_zoom = int(number)
+                zoom = ZoomImage(percent_zoom)
+                zoom.start_zoom()
+            except ValueError:
+                print("No es un número")
+           
+            return False
+        # ? sale del software
+        if self.select == 5:
             print(f"ejencutando la funcion {self.select} .. Saliendo")
             return True
         
